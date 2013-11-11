@@ -1,0 +1,22 @@
+README:
+
+
+1. Setup your local host to point at www.mystorefront.com
+2. Create database : mystorefront_magento and import the sql dump from the location: https://www.dropbox.com/s/qrxsfaqe7mhfcti/mystorefront_magento.sql?m
+3. The Dump already has the products from the catalog csv imported.
+
+
+Steps to create the solution: 
+
+1. First the categories were imported and set up from the CSV file; to do this a shell script : shell/import_categories.php was created.
+2. Then the products were imported and set up from the CSV file, shell script : shell/import_products.php was used.
+3. For each Group ID a corresponding configurable product was created, while the versions under one group id were associated
+   as simple products with the particular configurable product.
+4. On the Search results page simple products that have configurable products won't show up; this was ahichieved by controlling the visiblity attribute of these products.
+5. The configurable Product PDP pages will show all the simple product values.
+
+
+This solution can act as an Independent Magento product import module/(shell scripts) if the format in which the catalog is provided is like in the csv provided.
+
+
+

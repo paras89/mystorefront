@@ -1,0 +1,44 @@
+<?php
+$product = $this->getProduct();
+$index = 1;
+if ($product->getTypeId() != 'simple') {
+    $childProducts = Mage::getModel('catalog/product_type_configurable')
+                     ->getUsedProducts(null, $product);
+} else {
+    $childProducts[] = $product;
+}
+?>
+    <div style="padding:60px; background:#F6F6F6; border:1px solid #E4E4E4; ">
+        <h1 style="">Product Versions: </h1>
+        <table summary="Product Versions" id="box-table-a" style="padding:10px; background:#F6F6F6; border:1px solid #E4E4E4;
+                                                           width:100%">
+            <thead style="">
+            <tr>
+                <th scope="col">Version</th>
+                <?php if($product->getTypeId() == 'configurable'): ?>
+                <th scope="col">Group ID</th>
+                <?php endif; ?>
+                <th scope="col">Product ID</th>
+                <th scope="col">Shipping Duration</th>
+                <th scope="col">Price</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php foreach ($childProducts as $child): ?>
+
+                <tr>
+                    <td><?php echo $index++; ?></td>
+                    <?php if($product->getTypeId() == 'configurable'): ?>
+                        <td><?php echo $product->getSku() ?></td>
+                    <?php endif; ?>
+                    <td><?php echo $child->getSku() ?></td>
+                    <td><?php echo $child->getShippingDuration() ?></td>
+                    <td><?php echo number_format((float)$child->getPrice(), 2, '.', ''); ?></td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+
+<?php die();

@@ -156,7 +156,7 @@ class Mage_Catalog_Model_Resource_Product_Type_Configurable_Attribute_Collection
      */
     public function _addAssociatedProductFilters()
     {
-        $this->getProduct()->getTypeInstance(true)
+        $this->getProduct()->getTypeInstance(false)
             ->getUsedProducts($this->getColumnValues('attribute_id'), $this->getProduct()); // Filter associated products
         return $this;
     }
