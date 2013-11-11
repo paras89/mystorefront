@@ -2,7 +2,8 @@ README:
 
 
 1. Setup your local host to point at www.mystorefront.com
-2. Create database : mystorefront_magento and import the sql dump from the location: https://www.dropbox.com/s/qrxsfaqe7mhfcti/mystorefront_magento.sql?m
+2. Create database : mystorefront_magento , username: root, password: <leave password blank> and import the sql dump from the location: https://www.dropbox.com/s/qrxsfaqe7mhfcti/mystorefront_magento.sql?m
+   Refer to app/etc/local.xml file for database details if needed.
 3. The Dump already has the products from the catalog csv imported.
 
 
